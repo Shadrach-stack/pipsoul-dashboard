@@ -1,10 +1,16 @@
 import "./globals.css";
+import { Inter } from "next/font/google";
 import ThemeClient from "./theme-client";
 import { AuthProvider } from "@/components/AuthProvider";
 import { ProfileProvider } from "@/components/ProfileProvider";
 import { Toaster } from "sonner";
 import { NotificationProvider } from "@/components/NotificationProvider";
 import { AccountProvider } from "@/components/AccountProvider";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 export default function RootLayout({
   children,
@@ -34,17 +40,18 @@ export default function RootLayout({
       </head>
 
       <body
-        className="
-          min-h-screen
-          bg-gradient-to-br
-          from-gray-100
-          via-white
-          to-gray-200
-          dark:from-gray-900
-          dark:via-black
-          dark:to-gray-900
-        "
-      >
+  className={`
+    ${inter.variable}
+    min-h-screen
+    bg-gradient-to-br
+    from-gray-100
+    via-white
+    to-gray-200
+    dark:from-gray-900
+    dark:via-black
+    dark:to-gray-900
+  `}
+>
         <AuthProvider>
           <AccountProvider>
             <ProfileProvider>
